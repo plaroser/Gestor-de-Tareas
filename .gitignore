@@ -52,7 +52,7 @@
 /GestionTareas/.externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
-/GestionTareas/google-services.json
+#/GestionTareas/google-services.json
 
 # Freeline
 /GestionTareas/freeline.py
