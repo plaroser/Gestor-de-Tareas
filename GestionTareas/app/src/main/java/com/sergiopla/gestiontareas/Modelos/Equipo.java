@@ -12,9 +12,9 @@ public class Equipo {
     private String nombre;
     private ArrayList<Empleado> empleado;
     private String departamento;
-    private Tarea tarea;
+    private ArrayList<Tarea> tarea;
 
-    public Equipo(String nombre, ArrayList<Empleado> empleado, String departamento, Tarea tarea){
+    public Equipo(String nombre, ArrayList<Empleado> empleado, String departamento, ArrayList<Tarea> tarea){
         this.nombre=nombre;
         this.empleado=empleado;
         this.departamento=departamento;
@@ -45,11 +45,11 @@ public class Equipo {
         this.departamento = departamento;
     }
 
-    public Tarea getTarea() {
+    public ArrayList<Tarea> getTarea() {
         return tarea;
     }
 
-    public void setTarea(Tarea tarea) {
+    public void setTarea(ArrayList<Tarea> tarea) {
         this.tarea = tarea;
     }
 }
