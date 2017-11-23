@@ -109,13 +109,15 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 1:
+                case 0:
                     return SettingsFragment.newInstance();
-                case 2:
+                case 1:
                     return HomeFragment.newInstance();
-                case 3:
+                case 2:
                     return TareasFragment.newInstance();
             }
+//            return null;
+
             throw new IllegalArgumentException();
         }
 
