@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
+    final int NUMERO_PESTAÑAS = 3;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         /**
-         * Se encarga de cargar el fragmen que toca en cada momento
+         * * Se encarga de cargar el fragmen que toca en cada momento, lanza IllegalArgumentException si no se le pasa por parametro el numero correcto
          *
          * @param position posicion a cargar
          * @return fragment cargado
@@ -115,17 +115,13 @@ public class HomeActivity extends AppCompatActivity {
                     return HomeFragment.newInstance();
                 case 3:
                     return TareasFragment.newInstance();
-                default:
-                    Toast.makeText(getApplicationContext(), "ERROR en la numeracion de los fragment", Toast.LENGTH_LONG).show();
-                    return HomeFragment.newInstance();
             }
+            throw new IllegalArgumentException();
         }
 
         @Override
         public int getCount() {
-
-            // Show 3 total pages.
-            return 3;
+            return NUMERO_PESTAÑAS;
         }
     }
 }
