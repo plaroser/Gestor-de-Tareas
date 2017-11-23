@@ -41,20 +41,23 @@
                 android:layout_marginTop="25dp"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:autoText="false"
                 android:elevation="@dimen/activity_horizontal_margin"
                 android:text="@string/listar_equipos_titulo" />
+
+
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
     <ListView
-        android:id="@+id/lv_equipos"
+        android:id="@+id/list_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/app_bar" />
+        android:layout_below="@+id/app_bar"
+        />
+
 
 
 </RelativeLayout>

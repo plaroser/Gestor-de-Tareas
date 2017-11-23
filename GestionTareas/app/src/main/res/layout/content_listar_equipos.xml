@@ -9,5 +9,15 @@
     tools:showIn="@layout/activity_listar_equipos">
 
 
+    <TextView
+        android:id="@+id/tv_Nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Demo"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black" />
+
+
 
 </android.support.v4.widget.NestedScrollView>

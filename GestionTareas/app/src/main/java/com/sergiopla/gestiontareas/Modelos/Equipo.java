@@ -13,6 +13,10 @@ public class Equipo {
     private String departamento;
     private List<Tarea> tareas;
 
+    public Equipo(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Equipo(String nombre, List<Empleado>listaEmpleados, String departamento, List<Tarea>listaTareas) {
         this.nombre = nombre;
         this.departamento = departamento;
