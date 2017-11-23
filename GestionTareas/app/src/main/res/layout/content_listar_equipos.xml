@@ -13,10 +13,16 @@
         android:id="@+id/tv_Nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Demo"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:maxHeight="70dp"
+        android:maxWidth="70dp"
+        android:minHeight="70dp"
+        android:minWidth="70dp" />
+
 
 
 

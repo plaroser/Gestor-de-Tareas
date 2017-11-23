@@ -60,12 +60,9 @@ public class Equipo {
         this.tareas = tareas;
     }
 
-    @Override
-    public String toString() {
-        return "Equipo{" +
-                "nombre='" + nombre + '\'' +
-                ", empleados=" + empleados +
-                '}';
+
+
+
     }
-}
+
 
