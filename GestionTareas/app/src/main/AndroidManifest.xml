@@ -27,7 +27,8 @@
         <activity
             android:name=".ListarEquiposActivity"
             android:label="@string/title_activity_listar_equipos"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CrearTarea"></activity>
     </application>
 
 </manifest>

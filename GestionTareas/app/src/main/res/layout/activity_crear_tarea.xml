@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sergiopla.gestiontareas.CrearTarea">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtNombreTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="31dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/nombretarea"
+            android:textColor="#767676" />
+
+        <EditText
+            android:id="@+id/edtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/edtNombreTarea"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="@string/descripcion"
+            android:textColor="#767676" />
+
+        <EditText
+            android:id="@+id/edtEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtFechaLimite"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/equipo"
+            android:textColor="#767676" />
+
+        <EditText
+            android:id="@+id/edtFechaLimite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/fechalimite"
+            android:textColor="#767676" />
+
+        <EditText
+            android:id="@+id/edtFechaCreacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/edtFechaLimite"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/fechacreacion"
+            android:textColor="#767676" />
+
+        <TextView
+            android:id="@+id/edtPrioridad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/edtFechaCreacion"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="17dp"
+            android:text="@string/prioridad"
+            android:textColor="#767676" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/edtPrioridad"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="70dp"
+            android:hapticFeedbackEnabled="false"
+            android:textColorLink="@color/colorPrimaryDark"
+            tools:checked="false" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/edtPrioridad"
+            android:layout_marginTop="18dp"
+            android:entries="@array/proceso" />
+
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/edtPrioridad"
+            android:layout_below="@+id/spinner"
+            android:layout_marginEnd="11dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/editar"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/btnCrear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btnEditar"
+            android:layout_alignEnd="@+id/switch1"
+            android:background="@color/colorPrimary"
+            android:text="@string/crear"
+            android:textColor="@android:color/background_light" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
