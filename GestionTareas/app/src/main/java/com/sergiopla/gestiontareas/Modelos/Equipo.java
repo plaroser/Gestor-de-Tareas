@@ -1,8 +1,7 @@
 package com.sergiopla.gestiontareas.Modelos;
 
-import com.sergiopla.gestiontareas.Modelos.Empleado;
-
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ivan on 22/11/2017.
@@ -10,15 +9,19 @@ import java.util.ArrayList;
 
 public class Equipo {
     private String nombre;
-    private ArrayList<Empleado> empleados;
+    private List<Empleado> empleados;
     private String departamento;
-    private ArrayList<Tarea> tareas;
+    private List<Tarea> tareas;
 
-    public Equipo(String nombre, String departamento) {
+    public Equipo(String nombre, List<Empleado>listaEmpleados, String departamento, List<Tarea>listaTareas) {
         this.nombre = nombre;
         this.departamento = departamento;
-        this.empleados= new ArrayList<Empleado>();
-        this.tareas= new ArrayList<Tarea>();
+        this.empleados= listaEmpleados;
+        this.tareas= listaTareas;
+    }
+
+    public Equipo(String nombre, List<Empleado> empleados, String departamento) {
+        this(nombre,new ArrayList<Empleado>(),departamento,new ArrayList<Tarea>());
     }
 
     public String getNombre() {
@@ -37,7 +40,7 @@ public class Equipo {
         this.departamento = departamento;
     }
 
-    public ArrayList<Empleado> getEmpleados() {
+    public List<Empleado> getEmpleados() {
         return empleados;
     }
 
@@ -45,7 +48,7 @@ public class Equipo {
         this.empleados = empleados;
     }
 
-    public ArrayList<Tarea> getTareas() {
+    public List<Tarea> getTareas() {
         return tareas;
     }
 

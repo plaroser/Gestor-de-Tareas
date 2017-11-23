@@ -49,7 +49,7 @@ public class ListarEquiposActivity extends AppCompatActivity {
 
     }
 
-    
+
 
 
 }
