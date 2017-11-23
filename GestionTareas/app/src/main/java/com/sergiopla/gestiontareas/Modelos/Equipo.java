@@ -10,15 +10,15 @@ import java.util.ArrayList;
 
 public class Equipo {
     private String nombre;
-    private ArrayList<Empleado> empleado;
+    private ArrayList<Empleado> empleados;
     private String departamento;
-    private ArrayList<Tarea> tarea;
+    private ArrayList<Tarea> tareas;
 
-    public Equipo(String nombre, ArrayList<Empleado> empleado, String departamento, ArrayList<Tarea> tarea){
-        this.nombre=nombre;
-        this.empleado=empleado;
-        this.departamento=departamento;
-        this.tarea=tarea;
+    public Equipo(String nombre, String departamento) {
+        this.nombre = nombre;
+        this.departamento = departamento;
+        this.empleados= new ArrayList<Empleado>();
+        this.tareas= new ArrayList<Tarea>();
     }
 
     public String getNombre() {
@@ -29,14 +29,6 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public ArrayList<Empleado> getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(ArrayList<Empleado> empleado) {
-        this.empleado = empleado;
-    }
-
     public String getDepartamento() {
         return departamento;
     }
@@ -45,12 +37,28 @@ public class Equipo {
         this.departamento = departamento;
     }
 
-    public ArrayList<Tarea> getTarea() {
-        return tarea;
+    public ArrayList<Empleado> getEmpleados() {
+        return empleados;
     }
 
-    public void setTarea(ArrayList<Tarea> tarea) {
-        this.tarea = tarea;
+    public void setEmpleados(ArrayList<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
+    public ArrayList<Tarea> getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(ArrayList<Tarea> tareas) {
+        this.tareas = tareas;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipo{" +
+                "nombre='" + nombre + '\'' +
+                ", empleados=" + empleados +
+                '}';
     }
 }
 

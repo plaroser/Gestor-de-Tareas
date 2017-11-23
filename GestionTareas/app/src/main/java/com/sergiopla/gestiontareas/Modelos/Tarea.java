@@ -3,6 +3,8 @@ package com.sergiopla.gestiontareas.Modelos;
 import com.sergiopla.gestiontareas.Modelos.Empleado;
 import com.sergiopla.gestiontareas.Modelos.Equipo;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -14,18 +16,19 @@ public class Tarea {
     private String cabecera;
     private Equipo equipo;
     private String comentario;
-    private Date fechaInicio;
-    private Date fechaFin;
-    private Empleado empleado;
+    private String fechaInicio;
+    private String fechaFin;
+    private ArrayList<Empleado> empleados;
 
-    public Tarea(String cabecera, Equipo equipo, String comentario, Date fechaInicio, Date fechaFin, Empleado empleado) {
-        this.cabecera = cabecera;
+    public Tarea(Equipo equipo, Date fechaInicio) {
         this.equipo = equipo;
-        this.comentario = comentario;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.empleado = empleado;
+        this.fechaInicio = formatearFecha(fechaInicio);
+        this.empleados = new ArrayList<Empleado>();
+        this.cabecera = "Nombra la tarea";
+        this.comentario = "Escribe un comentario";
+        this.fechaFin = "";
     }
+
 
     public String getCabecera() {
         return cabecera;
@@ -51,27 +54,32 @@ public class Tarea {
         this.comentario = comentario;
     }
 
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public ArrayList<Empleado> getEmpleados() {
+        return empleados;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEmpleados(ArrayList<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
+    public String formatearFecha(Date fecha){
+        SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yy");
+        return ft.format(fecha);
     }
 }

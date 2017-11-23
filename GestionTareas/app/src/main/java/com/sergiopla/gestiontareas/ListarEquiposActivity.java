@@ -12,7 +12,8 @@ import com.sergiopla.gestiontareas.Modelos.Empleado;
 import com.sergiopla.gestiontareas.Modelos.Tarea;
 
 import java.util.ArrayList;
-
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class ListarEquiposActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class ListarEquiposActivity extends AppCompatActivity {
     private ArrayList<Equipo> equipos;
     private ArrayList<Empleado>empleados;
     private ArrayAdapter<Equipo> equipoArrayAdapter;
+    private Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +31,25 @@ public class ListarEquiposActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        calendar=Calendar.getInstance();
+        equiposListView=(ListView)findViewById(R.id.lv_equipos);
+        equipos=new ArrayList<Equipo>();
+        empleados=new ArrayList<Empleado>();
+        Equipo equipo1= new Equipo("Equipo1","Programación");
+        Empleado empleado1= new Empleado("Iván");
+        Tarea tarea1 = new Tarea(equipo1,calendar.getTime());
+        equipos.add(equipo1);
+        empleados.add(empleado1);
+        Equipo teamAux = equipos.get(0);
+        teamAux.getEmpleados().add(empleado1);
+        empleado1.setEquipo(teamAux);
+        equipos.get(0).getEmpleados().add(empleado1);
+        equipoArrayAdapter = new ArrayAdapter<Equipo>(this,R.layout.activity_listar_equipos,equipos);
+        equiposListView.setAdapter(equipoArrayAdapter);
 
-//        equiposListView=(ListView)findViewById(R.id.lv_equipos);
-//        equipos=new ArrayList<Equipo>();
-//        empleados=new ArrayList<Empleado>();
-//        Tarea tarea1= new Tarea("HOLA",equipo1)
-//        Equipo equipo1=new Equipo("Equipo1",empleados,"Programación", )
-//        Empleado empleado1=new Empleado("Ivan",)
-//        empleados.add()
-//        equipos.add("")
     }
+
+    
 
 
 }

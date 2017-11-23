@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class Empleado {
     private String nombre;
     private Equipo equipo;
-    private ArrayList<Tarea> tarea;
+    private ArrayList<Tarea> tareas;
 
-    public Empleado(String nombre, Equipo equipo, ArrayList<Tarea> tarea) {
+    public Empleado(String nombre) {
         this.nombre = nombre;
         this.equipo = equipo;
-        this.tarea = tarea;
+        this.tareas = new ArrayList<Tarea>();
     }
 
     public String getNombre() {
@@ -34,10 +34,10 @@ public class Empleado {
     }
 
     public ArrayList<Tarea> getTarea() {
-        return tarea;
+        return tareas;
     }
 
     public void setTarea(ArrayList<Tarea> tarea) {
-        this.tarea = tarea;
+        this.tareas = tarea;
     }
 }
