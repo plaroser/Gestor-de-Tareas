@@ -24,7 +24,7 @@ public class Equipo {
         this.tareas= listaTareas;
     }
 
-    public Equipo(String nombre, List<Empleado> empleados, String departamento) {
+    public Equipo(String nombre, String departamento) {
         this(nombre,new ArrayList<Empleado>(),departamento,new ArrayList<Tarea>());
     }
 
