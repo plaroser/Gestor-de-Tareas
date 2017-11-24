@@ -42,4 +42,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="home">Home</string>
+    <string name="lista_tareas">Lista de tareas</string>
+    <string name="crear_tarea">Crear tarea</string>
+    <string name="ver_equipos">Ver equipos</string>
+    <string name="ver_tareas">Ver tareas</string>
 </resources>
