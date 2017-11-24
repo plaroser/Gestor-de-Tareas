@@ -17,15 +17,15 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public Equipo(String nombre, List<Empleado>listaEmpleados, String departamento, List<Tarea>listaTareas) {
+    public Equipo(String nombre, List<Empleado> listaEmpleados, String departamento, List<Tarea> listaTareas) {
         this.nombre = nombre;
         this.departamento = departamento;
-        this.empleados= listaEmpleados;
-        this.tareas= listaTareas;
+        this.empleados = listaEmpleados;
+        this.tareas = listaTareas;
     }
 
     public Equipo(String nombre, String departamento) {
-        this(nombre,new ArrayList<Empleado>(),departamento,new ArrayList<Tarea>());
+        this(nombre, new ArrayList<Empleado>(), departamento, new ArrayList<Tarea>());
     }
 
     public String getNombre() {
@@ -61,8 +61,6 @@ public class Equipo {
     }
 
 
-
-
-    }
+}
 
 

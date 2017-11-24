@@ -78,7 +78,7 @@ public class Tarea {
         this.empleados = empleados;
     }
 
-    public String formatearFecha(Date fecha){
+    public String formatearFecha(Date fecha) {
         SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yy");
         return ft.format(fecha);
     }
