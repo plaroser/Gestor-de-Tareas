@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.sergiopla.gestiontareas.fragments.HomeFragment;
 import com.sergiopla.gestiontareas.fragments.TareasFragment;
@@ -150,13 +151,13 @@ public class HomeActivity extends AppCompatActivity
                     return TareasFragment.newInstance();
 
             }
-//            return null;
-            throw new IllegalArgumentException("Numero de pestaña no valido.");
+
+            throw new IllegalArgumentException("Numero de pestaña no valido, el mumero es: " + position);
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return PESTANIAS_MAXIMAS;
         }
     }
 }
