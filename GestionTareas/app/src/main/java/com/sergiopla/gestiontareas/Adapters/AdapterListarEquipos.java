@@ -1,4 +1,4 @@
-package com.sergiopla.gestiontareas.Modelos;
+package com.sergiopla.gestiontareas.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.sergiopla.gestiontareas.Modelos.Equipo;
 import com.sergiopla.gestiontareas.R;
 
 import org.w3c.dom.Text;
