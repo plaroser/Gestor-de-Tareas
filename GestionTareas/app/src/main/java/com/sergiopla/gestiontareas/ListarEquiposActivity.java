@@ -4,20 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.sergiopla.gestiontareas.Modelos.AdapterListarEquipos;
+import com.sergiopla.gestiontareas.Adapters.AdapterListarEquipos;
 import com.sergiopla.gestiontareas.Modelos.Equipo;
-import com.sergiopla.gestiontareas.Modelos.Empleado;
-import com.sergiopla.gestiontareas.Modelos.Tarea;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 
 public class ListarEquiposActivity extends AppCompatActivity {
@@ -51,24 +45,19 @@ public class ListarEquiposActivity extends AppCompatActivity {
         equipos.add(new Equipo("Equipo2"));
 
 
-        AdapterListarEquipos myAdapter=new AdapterListarEquipos(this,R.layout.content_listar_equipos, equipos);
+        AdapterListarEquipos myAdapter = new AdapterListarEquipos(this, R.layout.content_listar_equipos, equipos);
         listViewEquipos.setAdapter(myAdapter);
 
 
         listViewEquipos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               if(position==0){
-                   Intent intent = new Intent((view.getContext()),CrearTarea.class);
-                   startActivityForResult(intent,0);
+                if (position == 0) {
+                    Intent intent = new Intent((view.getContext()), CrearTarea.class);
+                    startActivityForResult(intent, 0);
+                }
             }
-        }
         });
-
-
-
-
-
 
 
     }
