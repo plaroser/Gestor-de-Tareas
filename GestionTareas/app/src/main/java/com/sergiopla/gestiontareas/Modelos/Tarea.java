@@ -29,6 +29,10 @@ public class Tarea {
         this.fechaFin = "";
     }
 
+    public Tarea(String cabecera, Equipo equipo) {
+        this.cabecera = cabecera;
+        this.equipo = equipo;
+    }
 
     public String getCabecera() {
         return cabecera;
