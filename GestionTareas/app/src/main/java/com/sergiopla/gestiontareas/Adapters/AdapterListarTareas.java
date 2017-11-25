@@ -24,7 +24,11 @@ public class AdapterListarTareas extends ArrayAdapter<Tarea> {
         super(context, resource);
         this.listaTareas = listaTareas;
     }
-
+    @Override
+    public int getCount () {
+        return listaTareas.size();
+    }
+    @Override
     public View getView(int position, View v, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(R.layout.item_tarea, null);
