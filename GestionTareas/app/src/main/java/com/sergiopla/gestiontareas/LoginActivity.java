@@ -3,9 +3,11 @@ package com.sergiopla.gestiontareas;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -28,6 +30,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +64,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private TextInputLayout email;
+    private TextInputLayout contraseña;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +97,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+
+
+
     }
 
     private void populateAutoComplete() {
@@ -344,6 +353,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+        }
+    }
+
+    public void logear(String useremail, String usercontraseña){
+        if(useremail.equals("admin@gmail.com") && usercontraseña.equals("12345678")) {
+            Intent intentHome = new Intent(this, HomeActivity.class);
+            startActivity(intentHome);
+        }
+        else{
+            Toast.makeText(this, "Email o contraseña incorrectos...", Toast.LENGTH_SHORT).show();
         }
     }
 }
