@@ -16,22 +16,25 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".ListarEquiposActivity"
-            android:exported="true"
-            android:label=""
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CrearTarea" />
-        <activity
-            android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListarEquiposActivity"
+            android:exported="true"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CrearTarea" android:exported="true"/>
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
+
         </activity>
     </application>
 
