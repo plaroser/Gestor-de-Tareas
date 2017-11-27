@@ -15,8 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:name=".HomeActivity"
+            android:label="@string/home" />
         <activity
             android:name=".ListarEquiposActivity"
             android:exported="true"
@@ -24,8 +24,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CrearTarea" />
         <activity
-            android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
+            android:name="LoginActivity"
+            android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
