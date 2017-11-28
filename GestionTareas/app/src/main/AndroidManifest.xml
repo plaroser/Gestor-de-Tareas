@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-<<<<<<< HEAD
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
             <intent-filter>
@@ -24,10 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-=======
-            android:name=".HomeActivity"
-            android:label="@string/home" />
->>>>>>> Intento de validacion de user y funcionalidad para entrar despues del login
         <activity
             android:name=".ListarEquiposActivity"
             android:exported="true"
@@ -35,18 +30,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CrearTarea" android:exported="true"/>
         <activity
-<<<<<<< HEAD
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
-=======
-            android:name="LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
->>>>>>> Intento de validacion de user y funcionalidad para entrar despues del login
 
         </activity>
     </application>
