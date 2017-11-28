@@ -15,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+<<<<<<< HEAD
+            android:name=".HomeActivity"
+            android:label="@string/home" />
+=======
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
             <intent-filter>
@@ -23,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+>>>>>>> 6bd220fec1c18f7367eb0d426ecc32e2759f9005
         <activity
             android:name=".ListarEquiposActivity"
             android:exported="true"
@@ -30,10 +35,18 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CrearTarea" android:exported="true"/>
         <activity
+<<<<<<< HEAD
+            android:name="LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+=======
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
+>>>>>>> 6bd220fec1c18f7367eb0d426ecc32e2759f9005
 
         </activity>
     </application>
