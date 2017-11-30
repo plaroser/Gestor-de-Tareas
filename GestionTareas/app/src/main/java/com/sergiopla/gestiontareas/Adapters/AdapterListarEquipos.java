@@ -14,6 +14,9 @@ import com.sergiopla.gestiontareas.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.sergiopla.gestiontareas.R.layout.activity_listar_equipos;
+import static com.sergiopla.gestiontareas.R.layout.items_listar_equipos;
+
 /**
  * Created by ivan on 23/11/2017.
  */
@@ -37,7 +40,7 @@ public class AdapterListarEquipos extends ArrayAdapter  {
         View v =convertView;
         if(v == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.items_listar_equipos, null);
+            v = inflater.inflate(items_listar_equipos, null);
         }
         TextView nombreEquipos = v.findViewById(R.id.tv_Nombre);
         nombreEquipos.setText(equipos.get(position).getNombre());
@@ -45,4 +48,6 @@ public class AdapterListarEquipos extends ArrayAdapter  {
 
 
     }
+
+
 }

@@ -1,5 +1,8 @@
 package com.sergiopla.gestiontareas.Modelos;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +67,7 @@ public class Equipo {
     public void setTareas(ArrayList<Tarea> tareas) {
         this.tareas = tareas;
     }
+
 
 
 }
