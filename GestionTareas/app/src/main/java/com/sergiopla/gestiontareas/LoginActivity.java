@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -64,8 +65,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private TextInputLayout email;
-    private TextInputLayout contraseña;
+    private EditText etemail;
+    private EditText etcontraseña;
+    private TextView txtRegistro;
+    Button btnEntrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+        etcontraseña = (EditText) findViewById(R.id.password);
+        etemail = (EditText) findViewById(R.id.email);
+
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -87,7 +93,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = (Button) findViewById(R.id.btnEntrar);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,8 +104,33 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
+        txtRegistro = (TextView) findViewById(R.id.txtCrearCuenta);
 
+        txtRegistro.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View view) {
+               Intent registro= new Intent(LoginActivity.this, Registro.class);
+               startActivity(registro);
+            }
+        });
+
+        btnEntrar=(Button) findViewById(R.id.btnEntrar);
+
+        btnEntrar.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = etemail.getText().toString(), contraseña = etcontraseña.getText().toString();
+                if(email.equals("admin@gmail.com") && contraseña.equals("12345678")) {
+                    Intent intentHome = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intentHome);
+                    Toast.makeText(LoginActivity.this, "Inicio completado", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(LoginActivity.this, "Fallo al iniciar. Revise nombre de ususario o contraseña", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -356,14 +387,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
-    public void logear(String useremail, String usercontraseña){
-        if(useremail.equals("admin@gmail.com") && usercontraseña.equals("12345678")) {
-            Intent intentHome = new Intent(this, HomeActivity.class);
-            startActivity(intentHome);
-        }
-        else{
-            Toast.makeText(this, "Email o contraseña incorrectos...", Toast.LENGTH_SHORT).show();
-        }
+
+
     }
-}
+
 
