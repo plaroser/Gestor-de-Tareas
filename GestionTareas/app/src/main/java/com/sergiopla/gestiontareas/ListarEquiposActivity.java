@@ -25,11 +25,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import static android.view.ViewGroup.FOCUS_BLOCK_DESCENDANTS;
 
 
-public class ListarEquiposActivity extends AppCompatActivity {
+public class ListarEquiposActivity extends AppCompatActivity  {
     private ListView listViewEquipos;
     private ArrayList<Equipo> equipos;
     private ArrayList<Tarea> tareas;
@@ -41,8 +42,31 @@ public class ListarEquiposActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_equipos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         listViewEquipos = (ListView) findViewById(R.id.list_item);
+        setSupportActionBar(toolbar);
+        AñadirYpasar();
+
+        AdapterListarEquipos myAdapter = new AdapterListarEquipos(this, R.layout.items_listar_equipos, equipos);
+        listViewEquipos.setAdapter(myAdapter);
+
+        listViewEquipos.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+                final int position = i;
+                Equipo equipo = (Equipo)parent.getItemAtPosition(0);
+                Toast.makeText(view.getContext(), String.format("Posicion: '%s'", position), Toast.LENGTH_SHORT).show();
+                Intent newActivity = new Intent(view.getContext(), VerEquipoActivity.class);
+                newActivity.putExtra("Equipo", equipo.getNombre());
+                newActivity.putParcelableArrayListExtra(equipo.getNombre(), equipo.getTareas());
+
+                startActivity(newActivity);
+            }
+        });
+
+    }
+
+    private void AñadirYpasar(){
 
         equipos = new ArrayList<Equipo>();
         final Equipo equipo1 = new Equipo("Equipo 1");
@@ -50,11 +74,12 @@ public class ListarEquiposActivity extends AppCompatActivity {
         final Equipo equipo3 = new Equipo("Equipo 3");
         final Equipo equipo4 = new Equipo("Equipo 4");
         final Equipo equipo5 = new Equipo("Equipo 5");
-        final Tarea tarea1 = new Tarea(equipo1, currentTime);
-        final Tarea tarea2 = new Tarea(equipo1, currentTime);
-        final Tarea tarea3 = new Tarea(equipo1, currentTime);
-        final Tarea tarea4 = new Tarea(equipo1, currentTime);
-        final Tarea tarea5 = new Tarea(equipo1, currentTime);
+
+        final Tarea tarea1 = new Tarea(equipo1, new Date());
+        final Tarea tarea2 = new Tarea(equipo1, new Date());
+        final Tarea tarea3 = new Tarea(equipo1, new Date());
+        final Tarea tarea4 = new Tarea(equipo1, new Date());
+        final Tarea tarea5 = new Tarea(equipo1, new Date());
 
         tareas = new ArrayList<Tarea>();
         tareas.add(tarea1);
@@ -69,24 +94,7 @@ public class ListarEquiposActivity extends AppCompatActivity {
         equipos.add(equipo4);
         equipos.add(equipo5);
 
-        equipo1.setTareas(tareas);
-
-        listViewEquipos.setClickable(true);
-
-        AdapterListarEquipos myAdapter = new AdapterListarEquipos(this, R.layout.items_listar_equipos, equipos);
-        listViewEquipos.setAdapter(myAdapter);
-
-
-        listViewEquipos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent newActivity = new Intent(ListarEquiposActivity.this, VerEquipoActivity.class);
-                newActivity.putExtra("Equipo " + i, (Serializable) listViewEquipos.getItemAtPosition(i));
-                startActivity(newActivity);
-            }
-        });
-
-
+        equipos.get(0).setTareas(tareas);
     }
 
 

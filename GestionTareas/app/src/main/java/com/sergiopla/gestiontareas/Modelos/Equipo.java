@@ -3,6 +3,8 @@ package com.sergiopla.gestiontareas.Modelos;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +12,13 @@ import java.util.List;
  * Created by ivan on 22/11/2017.
  */
 
-public class Equipo {
+public class Equipo implements Serializable {
     private String nombre;
     private List<Empleado> empleados;
     private String departamento;
-    private List<Tarea> tareas;
+    private ArrayList<Tarea> tareas;
 
-    public Equipo(String nombre,List<Tarea> listaTareas){
+    public Equipo(String nombre,ArrayList<Tarea> listaTareas){
         this.nombre=nombre;
         this.tareas=listaTareas;
     }
@@ -25,7 +27,7 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public Equipo(String nombre, List<Empleado> listaEmpleados, String departamento, List<Tarea> listaTareas) {
+    public Equipo(String nombre, List<Empleado> listaEmpleados, String departamento, ArrayList<Tarea> listaTareas) {
         this.nombre = nombre;
         this.departamento = departamento;
         this.empleados = listaEmpleados;
@@ -60,15 +62,13 @@ public class Equipo {
         this.empleados = empleados;
     }
 
-    public List<Tarea> getTareas() {
+    public ArrayList<Tarea> getTareas() {
         return tareas;
     }
 
     public void setTareas(ArrayList<Tarea> tareas) {
         this.tareas = tareas;
     }
-
-
 
 }
 

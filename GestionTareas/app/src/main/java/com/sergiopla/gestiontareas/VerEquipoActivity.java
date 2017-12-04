@@ -26,30 +26,34 @@ public class VerEquipoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_equipo);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Intent i = getIntent();
-        final Equipo equipo1 =(Equipo)i.getSerializableExtra("Equipo 1");
-        final Equipo equipo2 =(Equipo)i.getSerializableExtra("Equipo 2");
-        final Equipo equipo3 =(Equipo)i.getSerializableExtra("Equipo 3");
-        final Equipo equipo4 =(Equipo)i.getSerializableExtra("Equipo 4");
-        final Equipo equipo5 =(Equipo)i.getSerializableExtra("Equipo 5");
+        setContentView(R.layout.activity_ver_equipo);
+        listViewTareas =(ListView)findViewById(R.id.verEquipos);
 
 
+        Bundle i = getIntent().getExtras();
+        if (i.containsKey("Equipo")) {
+            String nombreEquipo = i.getString("Equipo");
+            tareas = i.getParcelableArrayList(nombreEquipo);
+        }
 
-        AdapterVerEquipo myAdapter = new AdapterVerEquipo(this, R.layout.item_ver_equipo, tareas);
-        listViewTareas.setAdapter(myAdapter);
 
-        listViewTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent newActivity = new Intent(VerEquipoActivity.this, VerEquipoActivity.class);
-                newActivity.putExtra("Equipo "+ position, (Serializable) listViewTareas.getItemAtPosition(position));
-                startActivity(newActivity);
+        if (tareas != null) {
+            AdapterVerEquipo myAdapter = new AdapterVerEquipo(this, tareas);
+            listViewTareas.setAdapter(myAdapter);
+
+
+            listViewTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent newActivity = new Intent(view.getContext(), VerEquipoActivity.class);
+                    newActivity.putExtra("Equipo " + position, parent.getItemIdAtPosition(position));
+                    startActivity(newActivity);
                 }
 
 
             });
+        }
     }
 }

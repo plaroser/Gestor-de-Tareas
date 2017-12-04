@@ -18,13 +18,11 @@ import java.util.List;
  * Created by ivan on 28/11/2017.
  */
 
-public class AdapterVerEquipo extends ArrayAdapter {
+public class AdapterVerEquipo extends ArrayAdapter<Tarea> {
 
-    List<Tarea> ListaTareas = new ArrayList<Tarea>();
 
-    public AdapterVerEquipo(Context context, int textViewResourceId, ArrayList<Tarea> objects) {
-        super(context, textViewResourceId, objects);
-        ListaTareas = objects;
+    public AdapterVerEquipo(Context context, ArrayList<Tarea> objects) {
+        super(context, 0, objects);
     }
 
     @Override
@@ -34,16 +32,20 @@ public class AdapterVerEquipo extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.item_ver_equipo, null);
-        Tarea tarea = ListaTareas.get(position);
-        TextView tv_CabeceraTarea = item.findViewById(R.id.tv_Tarea);
-        TextView tv_FechaInicio = item.findViewById(R.id.tv_FechaInicio);
+        if (convertView == null) {
+            // LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            ///v = inflater.inflate(Mylayout, null);
 
-        tv_CabeceraTarea.setText(tarea.getCabecera());
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_ver_equipo, parent, false);
+        }
+        Tarea tarea = getItem(0);
+//        TextView tv_CabeceraTarea = convertView.findViewById(R.id.tv_Tarea);
+        TextView tv_FechaInicio = convertView.findViewById(R.id.tv_FechaInicio);
+
+//        tv_CabeceraTarea.setText(tarea.getCabecera());
         tv_FechaInicio.setText(tarea.getFechaInicio());
 
-        return item;
+        return convertView;
 
 
     }

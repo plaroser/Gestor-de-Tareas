@@ -23,10 +23,12 @@ import static com.sergiopla.gestiontareas.R.layout.items_listar_equipos;
 
 public class AdapterListarEquipos extends ArrayAdapter  {
     List<Equipo> equipos = new ArrayList<Equipo>();
+    int Mylayout;
 
     public AdapterListarEquipos(Context context, int textViewResourceId, ArrayList<Equipo> objects) {
         super(context, textViewResourceId,objects);
         equipos=objects;
+        Mylayout=textViewResourceId;
     }
 
     @Override
@@ -37,14 +39,16 @@ public class AdapterListarEquipos extends ArrayAdapter  {
 
     @Override
     public View getView(int position, View convertView,  ViewGroup parent) {
-        View v =convertView;
-        if(v == null) {
-            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(items_listar_equipos, null);
+        //View v =convertView;
+        if(convertView == null) {
+            // LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            ///v = inflater.inflate(Mylayout, null);
+
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.items_listar_equipos, parent, false);
         }
-        TextView nombreEquipos = v.findViewById(R.id.tv_Nombre);
+        TextView nombreEquipos = convertView.findViewById(R.id.tv_Nombre);
         nombreEquipos.setText(equipos.get(position).getNombre());
-        return v;
+        return convertView;
 
 
     }
