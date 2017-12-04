@@ -31,7 +31,6 @@ public class HomeActivity extends AppCompatActivity
     private ViewPager mViewPager;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
