@@ -53,12 +53,16 @@
     <ListView
         android:id="@+id/list_item"
         android:layout_width="match_parent"
-        android:layout_height="1500dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+<<<<<<< HEAD
         android:layout_below="@+id/app_bar"
         android:contextClickable="true"
 
        />
+=======
+        android:layout_below="@+id/app_bar" />
+>>>>>>> ab499912b5a961d4e9cb4547a4da1ac37be67426
 
 
 

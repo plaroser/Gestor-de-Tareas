@@ -16,7 +16,8 @@
         android:autoText="false"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/correo_electronico"
+        android:selectAllOnFocus="false"
+        android:hint="@string/correo_electronico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +29,8 @@
         android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/contraseña"
+        android:singleLine="true"
+        android:hint="@string/contraseña"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtCorreo" />
 
