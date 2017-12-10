@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -57,8 +58,8 @@ public class ListarEquiposActivity extends AppCompatActivity  {
                 Equipo equipo = (Equipo)parent.getItemAtPosition(0);
                 Toast.makeText(view.getContext(), String.format("Posicion: '%s'", position), Toast.LENGTH_SHORT).show();
                 Intent newActivity = new Intent(view.getContext(), VerEquipoActivity.class);
-                newActivity.putExtra("Equipo", equipo.getNombre());
-                newActivity.putParcelableArrayListExtra(equipo.getNombre(), equipo.getTareas());
+                newActivity.putExtra("Equipo", equipo);
+
 
                 startActivity(newActivity);
             }

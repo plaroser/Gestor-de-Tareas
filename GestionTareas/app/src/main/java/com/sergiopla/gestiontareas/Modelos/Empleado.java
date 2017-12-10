@@ -1,12 +1,15 @@
 package com.sergiopla.gestiontareas.Modelos;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
 /**
  * Created by ivan on 22/11/2017.
  */
 
-public class Empleado {
+public class Empleado implements Parcelable {
     private String nombre;
     private Equipo equipo;
     private ArrayList<Tarea> tareas;
@@ -39,5 +42,15 @@ public class Empleado {
 
     public void setTarea(ArrayList<Tarea> tarea) {
         this.tareas = tarea;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
     }
 }

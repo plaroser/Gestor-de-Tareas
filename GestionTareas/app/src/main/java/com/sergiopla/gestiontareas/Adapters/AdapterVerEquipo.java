@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class AdapterVerEquipo extends ArrayAdapter<Tarea> {
-
+    List<Tarea> tareas = new ArrayList<Tarea>();
 
     public AdapterVerEquipo(Context context, ArrayList<Tarea> objects) {
         super(context, 0, objects);
@@ -38,12 +38,11 @@ public class AdapterVerEquipo extends ArrayAdapter<Tarea> {
 
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_ver_equipo, parent, false);
         }
-        Tarea tarea = getItem(0);
-//        TextView tv_CabeceraTarea = convertView.findViewById(R.id.tv_Tarea);
-        TextView tv_FechaInicio = convertView.findViewById(R.id.tv_FechaInicio);
 
-//        tv_CabeceraTarea.setText(tarea.getCabecera());
-        tv_FechaInicio.setText(tarea.getFechaInicio());
+        TextView tv_CabeceraTarea = convertView.findViewById(R.id.tv_Tarea);
+        tv_CabeceraTarea.setText(tareas.get(position).getCabecera());
+
+
 
         return convertView;
 

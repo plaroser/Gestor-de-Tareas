@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.sergiopla.gestiontareas.Adapters.AdapterListarEquipos;
 import com.sergiopla.gestiontareas.Adapters.AdapterVerEquipo;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 public class VerEquipoActivity extends AppCompatActivity {
     private ListView listViewTareas;
     private ArrayList<Tarea> tareas;
-
+    private Equipo equipo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +33,12 @@ public class VerEquipoActivity extends AppCompatActivity {
         listViewTareas =(ListView)findViewById(R.id.verEquipos);
 
 
-        Bundle i = getIntent().getExtras();
-        if (i.containsKey("Equipo")) {
-            String nombreEquipo = i.getString("Equipo");
-            tareas = i.getParcelableArrayList(nombreEquipo);
+        Equipo equipo = getIntent().getExtras().getParcelable("Equipo");
+        if (equipo !=null){
+            tareas=equipo.getTareas();
+            Toast.makeText(this, "Funciona",Toast.LENGTH_LONG).show();
         }
+
 
 
         if (tareas != null) {
