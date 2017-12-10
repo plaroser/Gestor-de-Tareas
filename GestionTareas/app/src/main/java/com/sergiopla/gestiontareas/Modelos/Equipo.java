@@ -1,10 +1,6 @@
 package com.sergiopla.gestiontareas.Modelos;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +8,7 @@ import java.util.List;
  * Created by ivan on 22/11/2017.
  */
 
-public class Equipo implements Parcelable {
+public class Equipo implements Serializable {
     private String nombre;
     private List<Empleado> empleados;
     private String departamento;
@@ -70,27 +66,7 @@ public class Equipo implements Parcelable {
         this.tareas = tareas;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-    }
-
-        public static final Parcelable.Creator<Equipo> CREATOR = new Parcelable.Creator<Equipo>() {
-        @Override
-        public Equipo createFromParcel(Parcel parcel) {
-            return null;
-        }
-
-        @Override
-        public Equipo[] newArray(int i) {
-            return new Equipo[0];
-        }
-    };
 }
 
 

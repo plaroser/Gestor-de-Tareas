@@ -1,10 +1,6 @@
 package com.sergiopla.gestiontareas.Modelos;
 
 import android.os.Parcel;
-import android.os.Parcelable;
-
-import com.sergiopla.gestiontareas.Modelos.Empleado;
-import com.sergiopla.gestiontareas.Modelos.Equipo;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -15,7 +11,7 @@ import java.util.Date;
  * Created by ivan on 22/11/2017.
  */
 
-public class Tarea implements Parcelable{
+public class Tarea implements Serializable{
 
     private String cabecera;
     private Equipo equipo;
@@ -94,28 +90,4 @@ public class Tarea implements Parcelable{
         return ft.format(fecha);
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-    }
-
-    public static final Parcelable.Creator<Tarea> CREATOR = new Parcelable.Creator<Tarea>(){
-        @Override
-        public Tarea createFromParcel(Parcel parcel) {
-            return null;
-        }
-
-        @Override
-        public Tarea[] newArray(int i) {
-            return new Tarea[0];
-        }
-
-
-
-    };
 }

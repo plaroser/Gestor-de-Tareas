@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.sergiopla.gestiontareas.Modelos.Equipo;
 import com.sergiopla.gestiontareas.Modelos.Tarea;
 import com.sergiopla.gestiontareas.R;
 
@@ -19,10 +18,11 @@ import java.util.List;
  */
 
 public class AdapterVerEquipo extends ArrayAdapter<Tarea> {
-    List<Tarea> tareas = new ArrayList<Tarea>();
+    List<Tarea> tareas;
 
-    public AdapterVerEquipo(Context context, ArrayList<Tarea> objects) {
-        super(context, 0, objects);
+    public AdapterVerEquipo(Context context, ArrayList<Tarea> tareas) {
+        super(context, 0, tareas);
+        this.tareas = tareas;
     }
 
     @Override
@@ -31,21 +31,13 @@ public class AdapterVerEquipo extends ArrayAdapter<Tarea> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            // LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            ///v = inflater.inflate(Mylayout, null);
+    public View getView(int position, View v, ViewGroup parent) {
+        if (v == null)
+            v = LayoutInflater.from(getContext()).inflate(R.layout.item_ver_equipo, parent, false);
 
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_ver_equipo, parent, false);
-        }
-
-        TextView tv_CabeceraTarea = convertView.findViewById(R.id.tv_Tarea);
+        TextView tv_CabeceraTarea = v.findViewById(R.id.tv_Tarea);
         tv_CabeceraTarea.setText(tareas.get(position).getCabecera());
 
-
-
-        return convertView;
-
-
+        return v;
     }
 }
