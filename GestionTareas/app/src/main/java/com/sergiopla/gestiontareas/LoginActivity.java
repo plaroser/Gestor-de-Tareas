@@ -3,25 +3,22 @@ package com.sergiopla.gestiontareas;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -68,12 +65,23 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText etemail;
     private EditText etcontraseña;
     private TextView txtRegistro;
+    private Intent intentHome;
     Button btnEntrar;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+    private final String IS_LOGIN = "isLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        intentHome = new Intent(LoginActivity.this, HomeActivity.class);
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
+        if (isLoggedIn()) {
+            startActivity(intentHome);
+        }
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -106,27 +114,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         txtRegistro = (TextView) findViewById(R.id.txtCrearCuenta);
 
-        txtRegistro.setOnClickListener(new View.OnClickListener(){
+        txtRegistro.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-               Intent registro= new Intent(LoginActivity.this, Registro.class);
-               startActivity(registro);
+                Intent registro = new Intent(LoginActivity.this, Registro.class);
+                startActivity(registro);
             }
         });
 
-        btnEntrar=(Button) findViewById(R.id.btnEntrar);
+        btnEntrar = (Button) findViewById(R.id.btnEntrar);
 
         btnEntrar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = etemail.getText().toString(), contraseña = etcontraseña.getText().toString();
-                if(email.equals("admin@gmail.com") && contraseña.equals("12345678")) {
-                    Intent intentHome = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(intentHome);
+                if (email.equals("admin@gmail.com") && contraseña.equals("12345678")) {
                     Toast.makeText(LoginActivity.this, "Inicio completado", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                    editor.putBoolean(IS_LOGIN, true);
+                    editor.commit();
+                    startActivity(intentHome);
+                } else {
                     Toast.makeText(LoginActivity.this, "Fallo al iniciar. Revise nombre de ususario o contraseña", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -387,8 +395,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
-
-
+    /**
+     * Quick check for login
+     **/
+    // Get Login State
+    public boolean isLoggedIn() {
+        return pref.getBoolean(IS_LOGIN, false);
     }
+
+
+}
 
 
