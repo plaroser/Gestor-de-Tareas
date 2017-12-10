@@ -35,4 +35,12 @@
         </menu>
     </item>
 
+    <item android:title="@string/salir" >
+        <menu>
+            <item
+                android:id="@+id/nav_exit"
+                android:title="@string/cerrar_sesion"/>
+        </menu>
+    </item>
+
 </menu>
