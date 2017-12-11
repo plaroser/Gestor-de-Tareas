@@ -43,10 +43,10 @@ public class VerEquipoActivity extends AppCompatActivity {
                 listViewTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(view.getContext(), VerEquipoActivity.class);
-                        intent.putExtra("Equipo " + position, parent.getItemIdAtPosition(position));
+                        Intent intent = new Intent(view.getContext(), CrearTarea.class);
+                        intent.putExtra("Tarea",tareas.get(position));
 
-//                        startActivity(intent);
+                        startActivity(intent);
                     }
                     
                 });

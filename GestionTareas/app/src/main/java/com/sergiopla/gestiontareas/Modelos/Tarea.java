@@ -33,6 +33,10 @@ public class Tarea implements Serializable{
         this.cabecera = cabecera;
         this.equipo = equipo;
     }
+    public  Tarea(String cabecera, Date fechaInicio){
+        this.cabecera=cabecera;
+        this.fechaInicio=formatearFecha(fechaInicio);
+    }
 
     public Tarea(Parcel source) {
     }

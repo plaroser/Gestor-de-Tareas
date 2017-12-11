@@ -16,8 +16,8 @@ import com.sergiopla.gestiontareas.Modelos.Tarea;
 public class CrearTarea extends AppCompatActivity {
 
     private Tarea t;
-    Button editar;
-    Button crear;
+    private Button editar;
+    private Button crear;
     EditText nombre;
     EditText descripcion;
     EditText equipo;
@@ -76,8 +76,11 @@ public class CrearTarea extends AppCompatActivity {
         descripcion.setText("Para poder utilizar Administrador de autorización de forma efectiva para controlar el acceso a los recursos, primero debe definir roles, tareas y operaciones.");
         editar.setEnabled(true);
         equipo.setText("Cenec");
-        fechac.setText("12/05/2017");
-        fechal.setText("23/08/2017");
+        if (tarea.getFechaInicio() != null)
+            fechal.setText(tarea.getFechaInicio().toString());
+        else
+            fechal.setText("12/05/2017");
+        fechac.setText("23/08/2017");
     }
 
     public void escritura() {

@@ -54,7 +54,7 @@ public class ListarEquiposActivity extends AppCompatActivity {
             equipos.add(nuevoEquipo);
             ArrayList<Tarea> listaTareas = new ArrayList<>();
             for (int j = 0; j < 10; j++)
-                listaTareas.add(new Tarea(nuevoEquipo, new Date()));
+                listaTareas.add(new Tarea("Tarea "+j, new Date()));
 
             equipos.get(i).setTareas(listaTareas);
         }

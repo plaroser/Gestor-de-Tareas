@@ -36,6 +36,8 @@ public class AdapterVerEquipo extends ArrayAdapter<Tarea> {
             v = LayoutInflater.from(getContext()).inflate(R.layout.item_ver_equipo, parent, false);
 
         TextView tv_CabeceraTarea = v.findViewById(R.id.tv_Tarea);
+        TextView tv_FechaInicio = v.findViewById(R.id.tv_FechaInicio);
+        tv_FechaInicio.setText(tareas.get(position).getFechaInicio().toString());
         tv_CabeceraTarea.setText(tareas.get(position).getCabecera());
 
         return v;

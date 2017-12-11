@@ -16,7 +16,7 @@
     </string>
     <string name="title_activity_listar_equipos">ListarEquiposActivity</string>
     <string name="listar_equipos_titulo">Lista de equipos</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_exit">Salir</string>
     <string name="registrar">Crear cuenta</string>
 
     <string name="correo_electronico">Correo electronico</string>
