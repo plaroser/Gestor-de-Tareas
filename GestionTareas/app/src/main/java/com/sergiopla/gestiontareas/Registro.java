@@ -32,6 +32,10 @@ public class Registro extends AppCompatActivity {
         edtContraseña = (EditText) findViewById(R.id.edtContraseña);
         crear = (Button) findViewById(R.id.btnCrearCuenta);
 
+        /**
+         * Metodo que te crea un usuario al pulsar el boton Crear
+         */
+
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +49,9 @@ public class Registro extends AppCompatActivity {
                     startActivity(crear);
 
 
+                    /**
+                     * Validacionmdel correo y contraseña
+                     */
                 }else if(!Patterns.EMAIL_ADDRESS.matcher(edtCorreo.getText()).matches()){
                     Toast.makeText(Registro.this, "Email incorrecto", Toast.LENGTH_SHORT).show();
 

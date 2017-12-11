@@ -43,6 +43,7 @@ public class CrearTarea extends AppCompatActivity {
 
         t = (Tarea) getIntent().getSerializableExtra("Tarea");
 
+
         if (t != null) {
             modoLectura();
             imprimirTarea(t);
@@ -59,6 +60,9 @@ public class CrearTarea extends AppCompatActivity {
 
     }
 
+    /**
+     * Modo lectura para deshabilitar los elementos
+     */
     public void modoLectura() {
         editar.setEnabled(false);
         nombre.setEnabled(false);
@@ -83,6 +87,9 @@ public class CrearTarea extends AppCompatActivity {
         fechac.setText("23/08/2017");
     }
 
+    /**
+     * Metodo para poder modificar cualquier elemento de la Activity
+     */
     public void escritura() {
         editar.setEnabled(true);
         nombre.setEnabled(true);
