@@ -42,7 +42,15 @@ public class Equipo implements Serializable {
         this.tareas = listaTareas;
     }
 
-
+    /**
+     * Constructor para el adaptador
+     * @param nombre
+     * @param departamento
+     */
+    public Equipo(String nombre, String departamento) {
+        this.nombre = nombre;
+        this.departamento = departamento;
+    }
 
     public String getNombre() {
         return nombre;

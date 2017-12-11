@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.sergiopla.gestiontareas.Adapters.AdapterListarTareas;
@@ -16,10 +15,8 @@ import com.sergiopla.gestiontareas.CrearTarea;
 import com.sergiopla.gestiontareas.Modelos.Equipo;
 import com.sergiopla.gestiontareas.Modelos.Tarea;
 import com.sergiopla.gestiontareas.R;
-import com.sergiopla.gestiontareas.VerEquipoActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by SergioPla on 11/23/17.
@@ -43,12 +40,18 @@ public class TareasFragment extends Fragment {
      */
     public static TareasFragment newInstance() {
         TareasFragment fragment = new TareasFragment();
-//        Bundle args = new Bundle();
-//        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-//        fragment.setArguments(args);
+
         return fragment;
     }
 
+    /**
+     * Metodo que se ejecuta al crear dicha vista
+     *
+     * @param inflater           elemento que muestra esta vista
+     * @param container          vista que contiene este fragment
+     * @param savedInstanceState Bundle que puede contener informacion adicional
+     * @return Vista creada
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,6 +75,9 @@ public class TareasFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Inicializa la lista con valores por defect
+     */
     private void inicializarLista() {
         listaTareas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
