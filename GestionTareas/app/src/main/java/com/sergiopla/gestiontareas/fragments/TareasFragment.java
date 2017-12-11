@@ -1,18 +1,22 @@
 package com.sergiopla.gestiontareas.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.sergiopla.gestiontareas.Adapters.AdapterListarTareas;
+import com.sergiopla.gestiontareas.CrearTarea;
 import com.sergiopla.gestiontareas.Modelos.Equipo;
 import com.sergiopla.gestiontareas.Modelos.Tarea;
 import com.sergiopla.gestiontareas.R;
+import com.sergiopla.gestiontareas.VerEquipoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +58,16 @@ public class TareasFragment extends Fragment {
         AdapterListarTareas adapterListarTareas = new AdapterListarTareas(getActivity().getApplicationContext(), R.layout.item_tarea, listaTareas);
         Log.d("Longitud del adaptador", String.valueOf(adapterListarTareas.getCount()));
         lVTareas.setAdapter(adapterListarTareas);
+
+        lVTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(parent.getContext(), CrearTarea.class);
+                intent.putExtra("Tarea", listaTareas.get(position));
+
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

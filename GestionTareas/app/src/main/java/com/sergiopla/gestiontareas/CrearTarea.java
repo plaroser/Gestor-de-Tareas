@@ -10,8 +10,12 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.sergiopla.gestiontareas.Modelos.Equipo;
+import com.sergiopla.gestiontareas.Modelos.Tarea;
+
 public class CrearTarea extends AppCompatActivity {
 
+    private Tarea t;
     Button editar;
     Button crear;
     EditText nombre;
@@ -27,20 +31,27 @@ public class CrearTarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_tarea);
 
-        editar=(Button) findViewById(R.id.btnEditar);
-        crear=(Button) findViewById(R.id.btnCrear);
-        nombre=(EditText) findViewById(R.id.edtNombreTarea);
-        descripcion=(EditText) findViewById(R.id.edtDescripcion);
-        equipo=(EditText) findViewById(R.id.edtEquipo);
-        fechal=(EditText) findViewById(R.id.edtFechaLimite);
-        fechac=(EditText) findViewById(R.id.edtFechaCreacion);
-        switch1=(Switch) findViewById(R.id.switch1);
-        spinner1=(Spinner) findViewById(R.id.spinner);
+        editar = (Button) findViewById(R.id.btnEditar);
+        crear = (Button) findViewById(R.id.btnCrear);
+        nombre = (EditText) findViewById(R.id.edtNombreTarea);
+        descripcion = (EditText) findViewById(R.id.edtDescripcion);
+        equipo = (EditText) findViewById(R.id.edtEquipo);
+        fechal = (EditText) findViewById(R.id.edtFechaLimite);
+        fechac = (EditText) findViewById(R.id.edtFechaCreacion);
+        switch1 = (Switch) findViewById(R.id.switch1);
+        spinner1 = (Spinner) findViewById(R.id.spinner);
+
+        t = (Tarea) getIntent().getSerializableExtra("Tarea");
+
+        if (t != null) {
+            modoLectura();
+            imprimirTarea(t);
+        }
 
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent crear= new Intent(CrearTarea.this,HomeActivity.class);
+                Intent crear = new Intent(CrearTarea.this, HomeActivity.class);
                 Toast.makeText(CrearTarea.this, "Tarea creada con exito", Toast.LENGTH_SHORT).show();
                 startActivity(crear);
             }
@@ -48,7 +59,7 @@ public class CrearTarea extends AppCompatActivity {
 
     }
 
-    public void lectura(){
+    public void modoLectura() {
         editar.setEnabled(false);
         nombre.setEnabled(false);
         descripcion.setEnabled(false);
@@ -60,7 +71,16 @@ public class CrearTarea extends AppCompatActivity {
 
     }
 
-    public void escritura(){
+    public void imprimirTarea(Tarea tarea) {
+        nombre.setText(tarea.getCabecera());
+        descripcion.setText("Para poder utilizar Administrador de autorización de forma efectiva para controlar el acceso a los recursos, primero debe definir roles, tareas y operaciones.");
+        editar.setEnabled(true);
+        equipo.setText("Cenec");
+        fechac.setText("12/05/2017");
+        fechal.setText("23/08/2017");
+    }
+
+    public void escritura() {
         editar.setEnabled(true);
         nombre.setEnabled(true);
         descripcion.setEnabled(true);
