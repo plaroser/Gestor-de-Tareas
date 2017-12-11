@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onClick(View view) {
                 String email = etemail.getText().toString(), contraseña = etcontraseña.getText().toString();
                 boolean cuentaCreada = (pref.getString("Correo", "").equals(email) && pref.getString("Contrasenia", "").equals(contraseña));
-                
+
                 if ((email.equals("admin@gmail.com") && contraseña.equals("12345678") || cuentaCreada)) {
                     Toast.makeText(LoginActivity.this, "Inicio completado", Toast.LENGTH_SHORT).show();
                     editor.putBoolean(IS_LOGIN, true);
