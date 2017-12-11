@@ -1,11 +1,14 @@
 package com.sergiopla.gestiontareas;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 public class CrearTarea extends AppCompatActivity {
 
@@ -33,6 +36,15 @@ public class CrearTarea extends AppCompatActivity {
         fechac=(EditText) findViewById(R.id.edtFechaCreacion);
         switch1=(Switch) findViewById(R.id.switch1);
         spinner1=(Spinner) findViewById(R.id.spinner);
+
+        crear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent crear= new Intent(CrearTarea.this,HomeActivity.class);
+                Toast.makeText(CrearTarea.this, "Tarea creada con exito", Toast.LENGTH_SHORT).show();
+                startActivity(crear);
+            }
+        });
 
     }
 
