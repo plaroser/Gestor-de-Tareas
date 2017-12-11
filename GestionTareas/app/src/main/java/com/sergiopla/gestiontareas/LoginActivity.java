@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         editor = pref.edit();
         if (isLoggedIn()) {
             startActivity(intentHome);
+            finish();
         }
 
         // Set up the login form.
