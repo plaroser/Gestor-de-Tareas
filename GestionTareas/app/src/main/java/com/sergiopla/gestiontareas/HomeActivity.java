@@ -23,6 +23,9 @@ import android.view.View;
 import com.sergiopla.gestiontareas.fragments.HomeFragment;
 import com.sergiopla.gestiontareas.fragments.TareasFragment;
 
+/**
+ * Creado por SergioPla
+ */
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -32,7 +35,11 @@ public class HomeActivity extends AppCompatActivity
     private SharedPreferences.Editor editor;
     private final String IS_LOGIN = "isLogin";
 
-
+    /**
+     * Metodo que se ejecuta al crear esta vista
+     *
+     * @param savedInstanceState Bundle que puede contener informacion adicional
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +81,9 @@ public class HomeActivity extends AppCompatActivity
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }
 
+    /**
+     * Metodo que se ejecuta al pulsar el bonton de atras
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -84,6 +94,12 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Metodo que se ejecuta al crear el menu
+     *
+     * @param menu menu a mostrar
+     * @return vista inflada
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -91,6 +107,12 @@ public class HomeActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * Metodo que se ejecuta al seleccionar una opcion del menu
+     *
+     * @param item menu a pulsar una opcion
+     * @return super.onOptionsItemSelected(item);
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -103,6 +125,12 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Metodo que se ejecuta al seleccionar un elemento del menu
+     *
+     * @param item menu a manejar
+     * @return verdadero o falso dependiendo de si existe el elemento
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -120,7 +148,6 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
-    //----------
 
     /**
      * Se encarga de manejar los fragment que se muestran
@@ -150,6 +177,11 @@ public class HomeActivity extends AppCompatActivity
             throw new IllegalArgumentException("Numero de pestaña no valido, el mumero es: " + position);
         }
 
+        /**
+         * Cuenta las pestaniuas maximas que tiene estactivity
+         *
+         * @return total de pestanias
+         */
         @Override
         public int getCount() {
             return PESTANIAS_MAXIMAS;
