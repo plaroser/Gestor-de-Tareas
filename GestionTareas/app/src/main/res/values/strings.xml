@@ -26,8 +26,8 @@
     <string name="equipo">Equipo</string>
     <string name="nombretarea">Nombre Tarea</string>
     <string name="descripcion">Descripcion</string>
-    <string name="fechalimite">fechalimite</string>
-    <string name="fechacreacion">Equipo</string>
+    <string name="fechalimite">Fecha Limite</string>
+    <string name="fechacreacion">Fecha Creacion</string>
     <string name="prioridad">Prioridad alta</string>
     <string name="editar">Editar</string>
     <string name="crear">Crear</string>
