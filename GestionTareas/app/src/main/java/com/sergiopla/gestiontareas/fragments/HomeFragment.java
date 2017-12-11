@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.sergiopla.gestiontareas.CrearTarea;
 import com.sergiopla.gestiontareas.HomeActivity;
+import com.sergiopla.gestiontareas.ListarEquiposActivity;
 import com.sergiopla.gestiontareas.R;
 import com.sergiopla.gestiontareas.VerEquipoActivity;
 
@@ -62,7 +63,7 @@ public class HomeFragment extends Fragment {
         verEquipos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent verEquipos = new Intent (getActivity(),VerEquipoActivity.class);
+                Intent verEquipos = new Intent (getActivity(),ListarEquiposActivity.class);
                 startActivity(verEquipos);
             }
         });

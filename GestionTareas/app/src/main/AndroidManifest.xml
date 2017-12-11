@@ -39,8 +39,10 @@
         <activity
             android:name=".VerEquipoActivity"
             android:label="@string/title_activity_ver_equipo"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Registro"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true"/>
+        <activity android:name=".Registro"
+            ></activity>
     </application>
 
 </manifest>
