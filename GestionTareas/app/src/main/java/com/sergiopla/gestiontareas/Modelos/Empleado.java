@@ -9,11 +9,15 @@ import java.util.ArrayList;
  * Created by ivan on 22/11/2017.
  */
 
-public class Empleado implements Parcelable {
+public class Empleado  {
     private String nombre;
     private Equipo equipo;
     private ArrayList<Tarea> tareas;
 
+    /**
+     * Constructor  con el nombre del empleado
+     * @param nombre
+     */
     public Empleado(String nombre) {
         this.nombre = nombre;
         this.equipo = equipo;
@@ -44,13 +48,5 @@ public class Empleado implements Parcelable {
         this.tareas = tarea;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-    }
 }

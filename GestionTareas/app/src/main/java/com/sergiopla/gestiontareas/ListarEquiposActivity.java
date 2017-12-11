@@ -31,9 +31,15 @@ public class ListarEquiposActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         AñadirYpasar();
 
+        /**
+         * Se usa el adapter de listar equipos para inflar el contenido de items_listar_equipos
+         */
         AdapterListarEquipos myAdapter = new AdapterListarEquipos(this, R.layout.items_listar_equipos, equipos);
         listViewEquipos.setAdapter(myAdapter);
 
+        /**
+         * Listener del listview para enviar de esta activity , información a la de VerEquipo Activity
+         */
         listViewEquipos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -46,6 +52,9 @@ public class ListarEquiposActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Se generan equipos con un bucle for y posteriormente se generan tareas para añadirselas a estos equipos
+     */
     private void AñadirYpasar() {
 
         equipos = new ArrayList<Equipo>();

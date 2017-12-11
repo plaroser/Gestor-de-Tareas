@@ -31,6 +31,10 @@ public class VerEquipoActivity extends AppCompatActivity {
         equipo = (Equipo) getIntent().getSerializableExtra("Equipo");
         tv_titulo = findViewById(R.id.tv_Titulo);
 
+
+        /**
+         * Se comprueba si se ha recibido la informacion de la anterior activity
+         */
         if (equipo != null) {
             tareas = equipo.getTareas();
             tv_titulo.setText(equipo.getNombre());
@@ -40,6 +44,9 @@ public class VerEquipoActivity extends AppCompatActivity {
                 listViewTareas.setAdapter(myAdapter);
 
 
+                /**
+                 * Listener del listview para enviar de esta activity , información a la de CrearTarea Activity
+                 */
                 listViewTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

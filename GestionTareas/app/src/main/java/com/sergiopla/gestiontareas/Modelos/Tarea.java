@@ -20,6 +20,11 @@ public class Tarea implements Serializable{
     private String fechaFin;
     private ArrayList<Empleado> empleados;
 
+    /**
+     * Constructor con datos predefinidos
+     * @param equipo
+     * @param fechaInicio
+     */
     public Tarea(Equipo equipo, Date fechaInicio) {
         this.equipo = equipo;
         this.fechaInicio = formatearFecha(fechaInicio);
@@ -29,6 +34,8 @@ public class Tarea implements Serializable{
         this.fechaFin = "";
     }
 
+
+    //Constructores con diferentes parametros
     public Tarea(String cabecera, Equipo equipo) {
         this.cabecera = cabecera;
         this.equipo = equipo;

@@ -19,10 +19,22 @@ public class Equipo implements Serializable {
         this.tareas = listaTareas;
     }
 
+    /**
+     * Constructor para probar
+     * @param nombre
+     */
     public Equipo(String nombre) {
         this.nombre = nombre;
     }
 
+
+    /**
+     * Constructor con todos los datos de Equipo
+     * @param nombre
+     * @param listaEmpleados
+     * @param departamento
+     * @param listaTareas
+     */
     public Equipo(String nombre, List<Empleado> listaEmpleados, String departamento, ArrayList<Tarea> listaTareas) {
         this.nombre = nombre;
         this.departamento = departamento;
@@ -30,9 +42,7 @@ public class Equipo implements Serializable {
         this.tareas = listaTareas;
     }
 
-    public Equipo(String nombre, String departamento) {
-        this(nombre, new ArrayList<Empleado>(), departamento, new ArrayList<Tarea>());
-    }
+
 
     public String getNombre() {
         return nombre;

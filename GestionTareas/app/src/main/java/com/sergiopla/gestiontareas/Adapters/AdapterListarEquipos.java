@@ -39,11 +39,7 @@ public class AdapterListarEquipos extends ArrayAdapter  {
 
     @Override
     public View getView(int position, View convertView,  ViewGroup parent) {
-        //View v =convertView;
         if(convertView == null) {
-            // LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            ///v = inflater.inflate(Mylayout, null);
-
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.items_listar_equipos, parent, false);
         }
         TextView nombreEquipos = convertView.findViewById(R.id.tv_Nombre);
